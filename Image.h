@@ -17,6 +17,8 @@ public:
     virtual string getACIIString();
 
     virtual void writeToFile(string& asciiString);
+
+    virtual ~Image(){}
 };
 
 
