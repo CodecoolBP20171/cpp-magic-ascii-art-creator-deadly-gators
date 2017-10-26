@@ -7,10 +7,5 @@
 
 Image::Image() {}
 
-void Image::toGrayScale() {}
-
 void Image::writeToFile(string& asciiString) {}
 
-string Image::getACIIString() {
-    return "";
-}

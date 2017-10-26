@@ -5,7 +5,7 @@
 #include <fstream>
 #include "BMPImage.h"
 
-BMPImage::BMPImage(char* filePath) {
+BMPImage::BMPImage(const char* filePath) {
     Input.ReadFromFile(filePath);
     this->toGrayScale();
     this->toScale();

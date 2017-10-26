@@ -5,7 +5,7 @@
 #include <fstream>
 #include "PNGImage.h"
 
-PNGImage::PNGImage(char* filePath) {
+PNGImage::PNGImage(const char* filePath) {
     vector<unsigned char> png;
     lodepng::load_file(png, filePath);
 
@@ -14,21 +14,6 @@ PNGImage::PNGImage(char* filePath) {
 
     //if there's an error, display it
     if(error) std::cout << "decoder error " << error << ": " << lodepng_error_text(error) << std::endl;
-
-    //std::cout << "Width: " << width << std::endl;
-    //std::cout << "Height: " << height << std::endl;
-
-    this->toGrayScale();
-    this->toScale();
-}
-
-
-void PNGImage::toGrayScale() {
-    for(unsigned y = 0; y < height; y++) {
-        for(unsigned x = 0; x < width; x++) {
-
-        }
-    }
 }
 
 void PNGImage::writeToFile(string& asciiString) {
@@ -48,6 +33,7 @@ string PNGImage::getACIIString() {
                 int b = image[y * width * 4 + x * 4 + 2];
                 int a = image[y * width * 4 + x * 4 + 3];
                 int lightness = ((r + g + b) / 3) * a / 255;
+                /*
                 int min = (r < g && r < b) ? r : (g < b ? g : b);
                 int max = (r > g && r > b) ? r : (g > b ? g : b);
                 int saturation = max - min;
@@ -55,6 +41,7 @@ string PNGImage::getACIIString() {
                 {
                     int h = lightness >= (min + max) / 2;
                 }
+                */
                 if (lightness >= 0 && lightness <= 30)
                     result += '@';
                 else if (lightness > 30 && lightness <= 60)

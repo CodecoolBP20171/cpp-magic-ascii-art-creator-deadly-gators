@@ -11,7 +11,7 @@
 
 class PNGImage : public Image {
 public:
-    PNGImage(char* filePath);
+    PNGImage(const char* filePath);
 
     void writeToFile(string& asciiString) override;
 
@@ -20,7 +20,6 @@ public:
 private:
     vector<unsigned char> image;
     unsigned width, height;
-    void toGrayScale() override;
     void toScale();
 };
 

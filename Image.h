@@ -11,14 +11,11 @@ using namespace std;
 class Image {
 public:
     Image();
+    virtual ~Image() {}
 
-    virtual void toGrayScale();
+    virtual string getACIIString() = 0;
 
-    virtual string getACIIString();
-
-    virtual void writeToFile(string& asciiString);
-
-    virtual ~Image(){}
+    virtual void writeToFile(string& asciiString) = 0;
 };
 
 

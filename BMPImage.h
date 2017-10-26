@@ -11,7 +11,7 @@
 
 class BMPImage : public Image {
 public:
-    BMPImage(char* filePath);
+    BMPImage(const char* filePath);
 
     void writeToFile(string& asciiString) override;
 
@@ -19,7 +19,7 @@ public:
 
 private:
     BMP Input;
-    void toGrayScale() override;
+    void toGrayScale();
     void toScale();
 };
 
